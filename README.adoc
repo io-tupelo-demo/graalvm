@@ -45,9 +45,10 @@ drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
 
 # I like to create a symbolic link so our ~/.bashrc file doesn't need to change when we upgrade graalvm versions
 /opt > sudo ln -s graalvm-ce-19.2.1 graalvm
-/opt > d *
-lrwxr-xr-x  1 root     wheel               17 Nov  8 11:47 graalvm@ -> graalvm-ce-19.2.1
-drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
+
+> d /opt/graal*
+lrwxr-xr-x  1 root     wheel               17 Nov  8 09:56 /opt/graalvm@ -> graalvm-ce-19.2.1
+drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  6 13:42 /opt/graalvm-ce-19.2.1/
 ```
 
 ### Configure your environment
