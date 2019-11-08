@@ -126,9 +126,10 @@ target/hello-world  0.00s user 0.00s system 52% cpu 0.009 total
 to run the native executable, for a speedup of over **130x** !
 
 ## See also:
+- link:https://youtu.be/topKYJgv6qA[Nice ClojureD video] by Jan Stepien
 - Bruno Bonacci's link:https://github.com/BrunoBonacci/graalvm-clojure/blob/master/doc/clojure-graalvm-native-binary.md[GraalVM Clojure Demo]
-- GraalVM link:https://www.graalvm.org/[Project Homepage]
-- GraalVM link:https://github.com/oracle/graal/releases[Downloads Page]
+- The GraalVM Project link:https://www.graalvm.org/[Homepage]
+- GraalVM link:https://github.com/oracle/graal/releases[Downloads]
 
 
 ## ToDo
