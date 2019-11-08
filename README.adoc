@@ -185,7 +185,7 @@ drwxr-xr-x  2 r634165  RBSWA\Domain Users     64 Nov  6 13:51 resources/
 drwxr-xr-x  3 r634165  RBSWA\Domain Users     96 Nov  6 13:51 src/
 drwxr-xr-x  7 r634165  RBSWA\Domain Users    224 Nov  8 12:06 target/
 
-ls -ldF *  0.00s user 0.00s system 61% cpu 0.010 totalbash
+ls -ldF *  0.00s user 0.00s system 61% cpu 0.010 total
 ```
 
 This command required 0.01 seconds, and it is apparent that Clojure+GraalVM has 
