@@ -1,0 +1,129 @@
+# Hello GraalVM!
+
+A demo of using GraalVM to compile a Clojure "Hello, World!" program into a native executable.
+
+## Setup
+
+Install GraalVM.  This is a full OpenJDK-8 distribution. I have the following basic setup in `~/.bashrc`
+
+```bash
+function path_prepend() {
+    local path_search_dir=$1
+    export PATH="${path_search_dir}:${PATH}"
+}
+function path_append() {
+    local path_search_dir=$1
+    export PATH="${PATH}:${path_search_dir}"
+}
+
+export PATH=.
+    path_append ${HOME}/bin
+    path_append ${HOME}/cool/bin
+    path_append ${HOME}/opt/bin
+    path_append /opt/bin
+    path_append /usr/local/bin
+    path_append /usr/bin
+    path_append /bin
+    path_append /usr/local/sbin
+    path_append /usr/sbin
+    path_append /sbin
+    path_append /usr/local/opt
+    path_append ${HOME}/.local/bin # awscli stuff
+
+function isMac() {
+    if [[ $(uname -a) =~ "Darwin" ]]; then
+        true
+    else
+        false
+    fi
+}
+function isLinux() {
+    if [[ $(uname -a) =~ "Linux" ]]; then
+        true
+    else
+        false
+    fi
+}
+
+# Mac OSX config
+if $(isMac) ; then #{
+  # echo "Found Darwin (block)"
+  echo "OSX is dumb!"  > /dev/null  # stupid bash can't handle an empty "then" part
+  # sleep 3
+
+  alias d='    ls -ldF'
+  alias lal='  ls -alF'
+  alias idea='echo "not implemented; start IDEA from dock" '
+
+  path_prepend "/usr/local/Cellar/python/3.7.2_2/libexec/bin"
+
+  function graalvm() {
+    export JAVA_HOME=/opt/graalvm-ce-19.2.1/Contents/Home
+    path_prepend ${JAVA_HOME}/bin
+    java -version
+  }
+  function java8() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    path_prepend ${JAVA_HOME}/bin
+    java -version
+  }
+  function java11() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+    path_prepend ${JAVA_HOME}/bin
+    java -version
+  }
+  function java12() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 12)
+    path_prepend ${JAVA_HOME}/bin
+    java -version
+  }
+  function java13() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v 13)
+    path_prepend ${JAVA_HOME}/bin
+    java -version
+  }
+
+  java13 >& /dev/null
+
+
+  export GOPATH=${HOME}/go
+  path_prepend ${GOPATH}/bin
+
+  unset HTTP_PROXY
+  unset http_proxy
+  unset HTTPS_PROXY
+  unset https_proxy
+  unset FTP_PROXY
+  unset ftp_proxy
+  unset NO_PROXY
+  unset no_proxy
+
+
+# export RUBY_HOME=/usr/local/Cellar/ruby/2.6.3  # Missing `bundle`, etc
+  export RUBY_HOME=~/.rbenv/versions/2.6.4       ;  path_prepend ${RUBY_HOME}/bin  # this one works
+
+fi #}
+
+
+
+```
+
+
+
+
+
+
+## License
+
+Copyright © 2019 FIXME
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.

@@ -1,0 +1,107 @@
+# Hello GraalVM!
+
+A demo of using GraalVM to compile a Clojure "Hello, World!" program into a native executable.
+
+## Setup
+
+Install GraalVM.  This is a full OpenJDK-8 distribution.  I always install packages like this in `/opt`, so the final
+install dir looks like:
+
+    /opt/graalvm-ce-19.2.1
+
+I have the following basic setup in `~/.bashrc`
+
+```bash
+# Utility functions to easy PATH-building syntax
+function path_prepend() {
+    local path_search_dir=$1
+    export PATH="${path_search_dir}:${PATH}"
+}
+function path_append() {
+    local path_search_dir=$1
+    export PATH="${PATH}:${path_search_dir}"
+}
+
+# Basic PATH
+export PATH=.
+    path_append ${HOME}/bin
+    path_append ${HOME}/opt/bin
+    path_append /opt/bin
+    path_append /usr/local/bin
+    path_append /usr/bin
+    path_append /bin
+
+function graalvm() {
+export JAVA_HOME=/opt/graalvm-ce-19.2.1/Contents/Home
+path_prepend ${JAVA_HOME}/bin
+java -version
+}
+function java13() {
+export JAVA_HOME=$(/usr/libexec/java_home -v 13)  # Mac OSX java trick
+path_prepend ${JAVA_HOME}/bin
+java -version
+}
+
+java13 >& /dev/null  # set java13 to be default
+```
+
+Verify you can switch your environment from the default Java (here, jdk13) to GraalVM's version of OpenJDK-8:
+
+```bash
+~/expr/graalvm > java -version    # we were using jdk13
+java version "13" 2019-09-17
+Java(TM) SE Runtime Environment (build 13+33)
+Java HotSpot(TM) 64-Bit Server VM (build 13+33, mixed mode, sharing)
+~/expr/graalvm >
+~/expr/graalvm >
+~/expr/graalvm > graalvm    # now, switch to GraalVM (jdk8)
+openjdk version "1.8.0_232"
+OpenJDK Runtime Environment (build 1.8.0_232-20191009173705.graal.jdk8u-src-tar-gz-b07)
+OpenJDK 64-Bit GraalVM CE 19.2.1 (build 25.232-b07-jvmci-19.2-b03, mixed mode)
+```
+
+## Run hello-world normally
+
+```bash
+~/expr/graalvm > time lein do clean, run
+Hello, World!
+Goodbye...
+lein do clean, run  9.92s user 0.84s system 225% cpu 4.780 total
+```
+
+## Create the uberjar and run that
+
+```bash
+~/expr/graalvm > time lein uberjar
+Compiling hello-world.core
+Created /Users/r634165/expr/graalvm/target/hello-world-0.1.0-SNAPSHOT.jar
+Created /Users/r634165/expr/graalvm/target/hello-world-0.1.0-SNAPSHOT-standalone.jar
+lein uberjar  11.21s user 2.71s system 182% cpu 7.626 total
+
+~/expr/graalvm > time java -jar target/hello-world-0.1.0-SNAPSHOT-standalone.jar
+Hello, World!
+Goodbye...
+java -jar target/hello-world-0.1.0-SNAPSHOT-standalone.jar  2.67s user 0.26s system 226% cpu 1.297 total
+```
+
+So, it took 7.6 sec to compile and package the uberjar, and 1.3 seconds to run the uberjar.
+
+
+
+## ToDo
+ - finish detailed untar setps for graalvm-ce-darwin-amd64-19.2.1.tar.gz
+
+## License
+
+Copyright © 2019 FIXME
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.
