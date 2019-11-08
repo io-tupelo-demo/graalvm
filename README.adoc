@@ -18,6 +18,10 @@ this in `/opt`, so the final install dir looks like:
 
 ### Download GraalVM
 
+Download the GraalVM tar file from the
+link:https://github.com/oracle/graal/releases[the GraalVM Releases page].  Unpack the tar
+file and install it in `/opt`:
+
 ```bash
 ~ > alias d='ls -ldF'
 
