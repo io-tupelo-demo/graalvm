@@ -169,7 +169,7 @@ target/hello-world  0.00s user 0.00s system 52% cpu 0.009 total
 ```
 
 **Yes, you read that right!**  Instead of taking 1.3 seconds to run the uberjar, we needed less than 0.01 seconds
-to run the native executable, for a speedup of over **130x** !
+to run the native executable, for **a speedup of over 130x** !
 
 Just for fun, let's compare to the `ls` command:
 
