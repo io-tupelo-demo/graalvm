@@ -75,8 +75,9 @@ export PATH=.
     path_append /usr/bin
     path_append /bin
 
+
 function graalvm() {
-  export JAVA_HOME=/opt/graalvm-ce-19.2.1/Contents/Home
+  export JAVA_HOME=/opt/graalvm/Contents/Home
   path_prepend ${JAVA_HOME}/bin
   java -version
 }
