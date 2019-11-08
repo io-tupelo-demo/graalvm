@@ -108,15 +108,21 @@ Build on Server(pid: 59523, port: 58080)*
 [./target/hello-world:59523]        write:     558.38 ms
 [./target/hello-world:59523]      [total]:  24,045.25 ms
 lein native  2.30s user 0.42s system 9% cpu 28.766 total
+```
 
+The GraalVM compiler is similar to the Google Closure compiler used to make GMail, etc super-compact & lightning-fast to
+download & run over the internet.  In addition to compiling the source code, it performs a static analysis to eliminate all
+unreachable code, in addition to normal optimization steps.  This results in a minimal executable size, and the
+fast startup we expect from a statically linked executable (for example, the `ls` command).
 
+```bash
 ~/expr/graalvm > time target/hello-world
 Hello, World!
 Goodbye...
 target/hello-world  0.00s user 0.00s system 52% cpu 0.009 total
 ```
 
-Yes, you read that right!  Instead of taking 1.3 seconds to run the uberjar, we needed less than 0.01 seconds
+**Yes, you read that right!**  Instead of taking 1.3 seconds to run the uberjar, we needed less than 0.01 seconds
 to run the native executable, for a speedup of over **130x** !
 
 ## See also:
