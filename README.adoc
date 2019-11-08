@@ -11,8 +11,8 @@ just like a C/C++ version of "Hello, World!".
 
 ## Install GraalVM
 
-This is a full OpenJDK-8 distribution.  I always install packages like this in `/opt`, so the final
-install dir looks like:
+The GraalVM distribution is a full OpenJDK-8 distribution.  I always install packages like 
+this in `/opt`, so the final install dir looks like:
 
     /opt/graalvm-ce-19.2.1
 
@@ -20,16 +20,18 @@ install dir looks like:
 
 ```bash
 ~ > alias d='ls -ldF'
+
 ~ > cd ~/Downloads
 ~/Downloads > d graalvm*
 -rw-r--r--@ 1 r634165  RBSWA\Domain Users  349548861 Nov  6 13:39 graalvm-ce-darwin-amd64-19.2.1.tar.gz
+
 ~/Downloads > mkdir -p tmp; cd tmp
 ~/Downloads/tmp > ls -al
 total 0
 drwxr-xr-x   2 r634165  RBSWA\Domain Users   64 Nov  6 13:42 ./
 drwx------+ 16 r634165  RBSWA\Domain Users  512 Nov  8 11:44 ../
-~/Downloads/tmp > tar -xf ../graalvm-ce-darwin-amd64-19.2.1.tar.gz
 
+~/Downloads/tmp > tar -xf ../graalvm-ce-darwin-amd64-19.2.1.tar.gz
 ~/Downloads/tmp > d *
 drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
 
@@ -41,7 +43,7 @@ Password:
 /opt > d graal*
 drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
 
-# create a symbolic link so our ~/.bashrc file doesn't need to change when we upgrade graalvm versions
+# I like to create a symbolic link so our ~/.bashrc file doesn't need to change when we upgrade graalvm versions
 /opt > sudo ln -s graalvm-ce-19.2.1 graalvm
 /opt > d *
 lrwxr-xr-x  1 root     wheel               17 Nov  8 11:47 graalvm@ -> graalvm-ce-19.2.1
@@ -49,7 +51,6 @@ drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
 ```
 
 ### Configure your environment
-
 
 I have the following basic setup in `~/.bashrc`
 
