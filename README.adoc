@@ -211,7 +211,7 @@ Hello, World!
 Goodbye...
 
         1.20 real         2.47 user         0.24 sys
- 409346048  maximum resident set size
+       409  maximum resident set size (MB)
     100469  page reclaims
       3569  involuntary context switches
 
@@ -221,7 +221,7 @@ Goodbye...
 Hello, World!
 Goodbye...
         0.00 real         0.00 user         0.00 sys
-   2560000  maximum resident set size
+         2  maximum resident set size (MB)
        657  page reclaims
          4  involuntary context switches
 ```
@@ -229,6 +229,23 @@ Goodbye...
 So we see that the maximum RSS memory requirement was reduced from 409 Mb to 2 Mb.  
 **Yes, an improvement over 200x!** Note also that context switches have been **reduced by 900x,** 
 and page reclaims by **about 200x**.
+
+Here is a quick comparison with Python:
+
+```bash
+> time python -c 'print("Hello world!")'
+Hello world!
+0.03s user 0.01s system 80% cpu 0.048 total
+
+> /usr/bin/time -l  python -c 'print("Hello world!")'
+Hello world!
+        0.04 real         0.02 user         0.01 sys
+         6  maximum resident set size (MB)
+      2110  page reclaims
+        24  involuntary context switches
+``
+
+So the Python version **takes 5x longer,** and uses **3x more memory.**
 
 
 ## Uses for Clojure+GraalVM
