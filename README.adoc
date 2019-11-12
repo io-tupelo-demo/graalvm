@@ -243,7 +243,7 @@ Hello world!
          6  maximum resident set size (MB)
       2110  page reclaims
         24  involuntary context switches
-``
+```
 
 So the Python version **takes 5x longer,** and uses **3x more memory.**
 
