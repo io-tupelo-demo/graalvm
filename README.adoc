@@ -2,6 +2,7 @@
 
 Clojure native executable using GraalVM.  ***100x Speedup!***
 
+
 ## Overview 
 
 link:https://www.graalvm.org/[GraalVM]
@@ -9,12 +10,14 @@ is an alternative compiler which can compile Clojure (and many other languages) 
 statically-linked executable.  This executable runs with minimal memory and minimum startup time, 
 just like a C/C++ version of "Hello, World!".
 
+
 ## Install GraalVM
 
 The GraalVM distribution is a full OpenJDK-8 distribution.  I always install packages like 
 this in `/opt`, so the final install dir looks like:
 
     /opt/graalvm-ce-19.2.1
+
 
 ### Download GraalVM
 
@@ -54,6 +57,7 @@ drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  8 11:45 graalvm-ce-19.2.1/
 lrwxr-xr-x  1 root     wheel               17 Nov  8 09:56 /opt/graalvm@ -> graalvm-ce-19.2.1
 drwxr-xr-x  3 r634165  RBSWA\Domain Users  96 Nov  6 13:42 /opt/graalvm-ce-19.2.1/
 ```
+
 
 ### Configure your environment
 
@@ -116,6 +120,7 @@ Goodbye...
 lein do clean, run  9.92s user 0.84s system 225% cpu 4.780 total
 ```
 
+
 ## Create the uberjar and run it
 
 ```bash
@@ -132,6 +137,7 @@ java -jar target/hello-world-0.1.0-SNAPSHOT-standalone.jar  2.67s user 0.26s sys
 ```
 
 So, it took 7.6 sec to compile and package the uberjar, and 1.3 seconds to run the uberjar.
+
 
 ## Create the native executable and run it
 
@@ -191,6 +197,7 @@ ls -ldF *  0.00s user 0.00s system 61% cpu 0.010 total
 This command required 0.01 seconds, and it is apparent that Clojure+GraalVM has 
 achieved parity with command-line utilities written in C.
 
+
 ## Don't forget about memory usage!
 
 Note that using `time` as above resolves to a shell built-in command.  We can get more information
@@ -219,8 +226,10 @@ Goodbye...
          4  involuntary context switches
 ```
 
-So we see that the maximem RSS memory requirement was reduced from 409 Mb to 2 Mb.  **Yes, an
-improvement over 200x!**
+So we see that the maximum RSS memory requirement was reduced from 409 Mb to 2 Mb.  
+**Yes, an improvement over 200x!** Note also that context switches have been **reduced by 900x,** 
+and page reclaims by **about 200x**.
+
 
 ## Uses for Clojure+GraalVM
 
