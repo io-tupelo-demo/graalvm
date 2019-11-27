@@ -25,7 +25,7 @@ Download the GraalVM tar file from the
 link:https://github.com/oracle/graal/releases[the GraalVM Releases page].  Unpack the tar
 file and install it in `/opt`:
 
-```bash
+```shell
 ~ > alias d='ls -ldF'
 
 ~ > cd ~/Downloads
@@ -101,7 +101,7 @@ java13 >& /dev/null  # set java13 to be default
 
 Verify you can switch your environment from the default Java (here, jdk13) to GraalVM's version of OpenJDK-8:
 
-```bash
+```code
 ~/expr/graalvm > java -version    # when login, we were using jdk13
 java version "13" 2019-09-17
 Java(TM) SE Runtime Environment (build 13+33)
