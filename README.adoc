@@ -117,7 +117,7 @@ OpenJDK 64-Bit GraalVM CE 19.2.1 (build 25.232-b07-jvmci-19.2-b03, mixed mode)
 
 #### Verify you can run the `gu` utility:
 
-```bash
+```code
 > gu --help   
 GraalVM Component Updater v2.0.0
 
