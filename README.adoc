@@ -111,9 +111,9 @@ OpenJDK Runtime Environment (build 1.8.0_232-20191009173705.graal.jdk8u-src-tar-
 OpenJDK 64-Bit GraalVM CE 19.2.1 (build 25.232-b07-jvmci-19.2-b03, mixed mode)
 ```
 
-### Install the `native-image` package using `gu`.
+### Install the `native-image` package using `gu`
 
-1.  Verify you can run the `gu` utility:
+#### Verify you can run the `gu` utility:
 
 ```bash
 > gu --help   
@@ -145,7 +145,7 @@ to get specific help.
 
 ```
 
-2. Install `native-image`
+#### Install `native-image`
 
 
 ```bash
