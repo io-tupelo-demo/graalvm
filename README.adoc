@@ -130,7 +130,7 @@ Usage:
 #### Install `native-image`
 
 
-```bash
+```code
 ~/expr/graalvm > gu install native-image
 Downloading: Component catalog from www.graalvm.org
 Processing Component: Native Image
@@ -141,7 +141,7 @@ Installing new component: Native Image (org.graalvm.native-image, version 19.3.0
 
 ## Run hello-world normally
 
-```bash
+```code
 ~/expr/graalvm > time lein do clean, run
 Hello, World!
 Goodbye...
@@ -151,7 +151,7 @@ lein do clean, run  9.92s user 0.84s system 225% cpu 4.780 total
 
 ## Create the uberjar and run it
 
-```bash
+```code
 ~/expr/graalvm > time lein uberjar
 Compiling hello-world.core
 Created /Users/r634165/expr/graalvm/target/hello-world-0.1.0-SNAPSHOT.jar
@@ -169,7 +169,7 @@ So, it took 7.6 sec to compile and package the uberjar, and 1.3 seconds to run t
 
 ## Create the native executable and run it
 
-```bash
+```code
 ~/expr/graalvm > lein native
 Build on Server(pid: 59523, port: 58080)*
 [./target/hello-world:59523]    classlist:   2,895.07 ms
@@ -195,7 +195,7 @@ download & run over the internet.  Besides compiling the source code, it perform
 unreachable code, in addition to normal optimization steps.  This results in a minimal executable size, and the
 fast startup we expect from a statically linked executable (for example, the `ls` command).
 
-```bash
+```code
 ~/expr/graalvm > time target/hello-world
 Hello, World!
 Goodbye...
@@ -208,7 +208,7 @@ to run the native executable, for **a speedup of over 130x** !
 Just for fun, let's compare to the `ls` command:
 
 
-```bash
+```code
 ~/expr/graalvm > time ls -ldF *
 -rw-r--r--  1 r634165  RBSWA\Domain Users  14199 Nov  6 13:51 LICENSE
 -rw-r--r--  1 r634165  RBSWA\Domain Users   7126 Nov  8 12:47 README.adoc
@@ -232,7 +232,7 @@ Note that using `time` as above resolves to a shell built-in command.  We can ge
 from the standard Unix version of `time`:
 
 
-```bash
+```code
 # JVM+UberJar
 > /usr/bin/time -l  java -jar target/hello-world-0.1.0-SNAPSHOT-standalone.jar
 Hello, World!
@@ -260,7 +260,7 @@ and page reclaims by **about 200x**.
 
 Here is a quick comparison with Python:
 
-```bash
+```code
 > time python -c 'print("Hello world!")'
 Hello world!
 0.03s user 0.01s system 80% cpu 0.048 total
