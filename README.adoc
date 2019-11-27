@@ -291,8 +291,8 @@ serverless functions such as AWS Lambda.
 - GraalVM link:https://github.com/oracle/graal/releases[Downloads]
 
 
---------------------------------------
-## Appendix - More config tricks
+
+# Appendix - More config tricks
 
 I use additional bash functions to help config.  Namely:
 
